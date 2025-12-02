@@ -1,10 +1,11 @@
 import Image from "next/image";
-
-export default async function Page(
-  props: PageProps<"/dashboard/users/[user_name]">
-) {
-  const { user_name } = await props.params;
-
+type PageProps = {
+params: {
+  user_name: string;
+};
+};
+export default async function page({params}:PageProps){
+  const {user_name}=params;
   return (
     <section>
       <p className="text-4xl text-amber-500 capitalize">
